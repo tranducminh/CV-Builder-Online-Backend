@@ -15,6 +15,12 @@ class CreateExperiencesTable extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('cv_id');
+            $table->date('timeStart');
+            $table->date('timeEnd');
+            $table->string('jobPosition');
+            $table->string('jobDescription');
+            $table->string('achievements');
             $table->timestamps();
         });
     }
