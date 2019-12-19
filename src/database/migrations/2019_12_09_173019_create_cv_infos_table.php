@@ -16,15 +16,15 @@ class CreateCvInfosTable extends Migration
         Schema::create('cv_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('cv_id');
-            $table->string('title');
-            $table->string('jobPurpose');
-            $table->string('email');
-            $table->string('fullname');
-            $table->date('birthday');
-            $table->string('sex');
-            $table->string('image');
-            $table->string('phone');
-            $table->string('address');
+            $table->string('title')->nullable();
+            $table->string('jobPurpose')->nullable();
+            $table->string('email')->nullable();
+            $table->string('fullname')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('sex')->nullable();
+            $table->string('image')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

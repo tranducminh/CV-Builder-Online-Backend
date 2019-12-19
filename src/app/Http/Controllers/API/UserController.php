@@ -19,7 +19,7 @@ class UserController extends Controller
         public function login(){ 
             if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
                 $user = Auth::user(); 
-                $success['token'] =  $user->createToken('2TMPNvZDDUC2XRgJqv4FbIlT2X2zLu3gDB9Nwe91')-> accessToken; 
+                $success['token'] =  $user->createToken('LimxDG2enNCfXC1ICQXe1lQnBdkEi72xSdcvUaLR')-> accessToken; 
                 $success['fullName'] = $user['fullName'];
                 $success['email'] = $user['email'];
                 return response()->json(['success' => $success], $this-> successStatus); 
@@ -51,8 +51,7 @@ class UserController extends Controller
             $input = $request->all(); 
             $input['password'] = bcrypt($input['password']); 
             $user = User::create($input); 
-            $success['token'] =  $user->createToken('2TMPNvZDDUC2XRgJqv4FbIlT2X2zLu3gDB9Nwe91')-> accessToken; 
-            $success['fullName'] =  $user->fullName;
+            $success['token'] =  $user->createToken('LimxDG2enNCfXC1ICQXe1lQnBdkEi72xSdcvUaLR')-> accessToken; 
             return response()->json(['success'=>$success], $this-> successStatus); 
         }
         /** 
@@ -63,6 +62,8 @@ class UserController extends Controller
         public function details() 
         { 
             $user = Auth::user(); 
-            return response()->json(['success' => $user], $this-> successStatus); 
+            // dd($user->id);
+            $success = User::find($user->id)->profile;
+            return response()->json(['success' => $success], $this-> successStatus); 
         } 
 }

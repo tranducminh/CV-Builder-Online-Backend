@@ -7,28 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 class CV extends Model
 {
     //
+    protected $fillable = [
+        'user_id', 'cvType',
+    ];
     public function cvInfo()
     {
-        return $this->hasOne('App\CvInfo');
+        return $this->hasOne('App\CvInfo', 'cv_id');
     }
 
     public function experiences()
     {
-        return $this->belongsTo('App\Experience', 'cv_id');
+        return $this->hasMany('App\Experience', 'cv_id');
     }
 
     public function educations()
     {
-        return $this->belongsTo('App\Education', 'cv_id');
+        return $this->hasMany('App\Education', 'cv_id');
     }
 
     public function languages()
     {
-        return $this->belongsTo('App\Language', 'cv_id');
+        return $this->hasMany('App\Language', 'cv_id');
     }
 
-    public function its()
+    public function itSkills()
     {
-        return $this->belongsTo('App\IT', 'cv_id');
+        return $this->hasOne('App\ITSkills', 'cv_id');
     }
 }

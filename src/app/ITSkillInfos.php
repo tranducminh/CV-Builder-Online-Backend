@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LanguageSkill extends Model
+class ITSkillInfos extends Model
 {
     //
     protected $fillable = [
-        'language_id', 'skillName', 'level'
+        'itskill_id', 'skillName', 'level'
     ];
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateITSTable extends Migration
+class CreateCVSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateITSTable extends Migration
      */
     public function up()
     {
-        Schema::create('ITs', function (Blueprint $table) {
+        Schema::create('c_v_s', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('cv_id');
+            $table->bigInteger('user_id');
+            $table->string('cvType');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateITSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ITs');
+        Schema::dropIfExists('c_v_s');
     }
 }

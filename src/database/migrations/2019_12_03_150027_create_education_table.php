@@ -16,11 +16,12 @@ class CreateEducationTable extends Migration
         Schema::create('education', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('cv_id');
-            $table->date('timeStart');
-            $table->date('timeEnd');
-            $table->string('specialized');
-            $table->string('level');
-            $table->string('graduationType');
+            $table->date('timeStart')->nullable();
+            $table->date('timeEnd')->nullable();
+            $table->string('trainingUnit')->nullable();
+            $table->string('specialized')->nullable();
+            $table->string('level')->nullable();
+            $table->string('graduationType')->nullable();
             $table->timestamps();
         });
     }
